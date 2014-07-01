@@ -35,7 +35,7 @@
 	
               		<form class="form-signin" role="form" method="GET">              			
                 		<input id="nombre"       type="text"   class="form-control" placeholder="Nombre" autofocus/>
-                		<input id="ingredientes" type="text"   class="form-control" placeholder="Ingredientes"/>
+                		<input id="ingredientes" type="text"   class="form-control" placeholder="Apellidos"/>
                 		<input id="fecha"   type="text"      class="form-control" placeholder="Fecha"/>
                 	
                 		<select id="activo" class="form-control">
