@@ -5,6 +5,13 @@
     	private $indentificador, $nombre, $apellidos, $fechaNacimiento, $sexo, $identificacion;
         private $tipoIdentificacion, $ciudad, $clubAfiliado, $nacionalidad, $estado, $edad, $categoria;
         
+        public function __construct($usuario, $contrasena, $rol, $idEmpresa){
+            $this->usuario = $usuario;
+            $this->contrasena = $contrasena;
+            $this->rol = $rol;
+            $this->idEmpresa = $idEmpresa;
+        }
+        
     	public function getTipoIdentificacion() {
             return $this->tipoIdentificacion;
         }
