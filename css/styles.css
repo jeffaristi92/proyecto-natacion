@@ -65,10 +65,16 @@ img{
 .deportista form select{
 	margin-bottom: 15px;	
 }
-
-.deportista .btn.enviar{
+.pull-right {
+	height: 40px;
+}
+.cerrar_sesion{
 	background-color: rgb(197, 197, 197);
 	color: black;
+	display: inline-block;
+	padding: 15px;
+}
+.deportista .btn.enviar{
 	margin-top: 5px;
 	margin-bottom: 20px;
 	float: right;

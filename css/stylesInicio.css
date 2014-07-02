@@ -1,0 +1,89 @@
+
+body{
+	font-family: Arial, Helvetica, sans-serif;
+	background: #f6f6f6;
+}
+h1{
+	text-align: center;
+	color: rgb(78, 78, 78);
+	font-size: 60px;
+	margin-bottom: 15px;
+}
+
+p{	
+	color: rgb(100, 100, 100);
+	font-size: 16px;
+	width: 250px;
+	margin: 0 auto;
+	margin-bottom: 30px;
+	text-align: center;
+}
+.background_login {
+	background-color: #fff;
+	width: 390px;
+	margin: 0 auto;	
+	border-radius: 4px;
+	box-shadow: 0 0 5px 0.4px rgba(0,0,0,0.6);
+}
+select {
+	width: 300px;
+	border: 1px solid #cccccc;
+	background-color: #ffffff;
+	height: 40px;
+	font-size: 16px;
+	padding-left: 6px;
+}
+
+.enviar{
+	display: block;
+	background-color: rgb(56, 106, 211);
+	width: 100%;
+	color: #fff;
+	font-size: 18px;
+}
+.enviar:hover{	
+	color: #fff;
+}
+.form-signin {
+	padding-top: 41px;
+	padding-bottom: 34px;
+}
+.form-control {
+	border-radius: 0px;
+	margin-bottom: 15px;
+}
+.form-signin input[type="password"] {
+	margin-bottom: 24px;	
+}
+.mensaje{
+	text-align: center;
+	color: rgb(255, 6, 6);
+	margin-top: 0px;
+	padding-bottom: 12px;
+	font-size: 15px;
+}
+
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {	
+	.background_login{
+		width: 330px;
+	}
+	h1{
+		font-size: 54px;
+	}
+	p{
+		font-size: 15px;
+	}
+}
+
+/* Landscape phones and down */
+@media (max-width: 420px) {	
+
+	.background_login{
+		width: 240px;
+	}
+	h1{
+		font-size: 42px;
+	}
+}

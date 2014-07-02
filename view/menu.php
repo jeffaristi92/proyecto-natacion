@@ -25,9 +25,13 @@
 		          		<li><a href="#">Separated link</a></li>
 		          	</ul>
 					</li>
-						<li><a href="#" class="clientes">Constancia Inscripción</a></li>								
-					    <li><a href="registroDeportista.php" class="clientes">Registro Deportista</a></li>	
+					<li><a href="#" class="clientes">Constancia Inscripción</a></li>								
+					<li><a href="registroDeportista.php" class="clientes">Registro Deportista</a></li>	
+					
 			</ul>
+			<ul class="pull-right">
+          		<a class="cerrar_sesion" href="CerrarSesion.php">Cerrar Sesión</a>  
+         	</ul> 
 		</div>
 	</nav>
 </div><!--FIN menu-->
