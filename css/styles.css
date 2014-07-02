@@ -75,6 +75,8 @@ img{
 	padding: 15px;
 }
 .deportista .btn.enviar{
+	background-color: rgb(197, 197, 197);
+	color: black;
 	margin-top: 5px;
 	margin-bottom: 20px;
 	float: right;

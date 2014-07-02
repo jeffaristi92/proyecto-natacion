@@ -8,6 +8,8 @@ require 'ControladorDeportista.php';
     	@$apellidos = $_GET['apellidos'];
     	@$sexo = $_GET['sexo'];
         @$fechaNacimiento = $_GET['fechaNacimiento'];
+        $arreglo =  split("/" , $fechaNacimiento);
+        $fechaNacimiento = $arreglo[2].'-'.$arreglo[0].'-'.$arreglo[1];
         @$tipoId = $_GET['tipoId'];
         @$id = $_GET['id'];
         @$pais = $_GET['pais'];
