@@ -12,7 +12,7 @@ function login() {
   	var user = $("#usuario").val();
 	  var pass = $("#password").val();	
 
-  	xmlhttp.open("GET","controlador/controllerLogin.php?usuario="+user+"&password="+pass,true);
+  	xmlhttp.open("GET","controlador/controllerLogin.php?usuario="+user+"&password="+pass, true);
   	xmlhttp.send();
 }
 

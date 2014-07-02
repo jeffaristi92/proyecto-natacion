@@ -16,7 +16,7 @@ require 'ControladorDeportista.php';
         @$estado = 'habilitado';
     	
       	$controlador = new ControladorDeportista();
-      	$controlador->insertarDeportista($nombres, $apellidos, $sexo, $fechaNacimiento, $tipoId, $id, $pais, $ciudad, $club, $estado);
+      	$controlador->insertarDeportista($nombres, $apellidos, $sexo, $fechaNacimiento, $tipoId, $id, $pais, $ciudad, $club, $estado, 23, 'A');
 
     }else{
     	echo "Por favor ingrese todos los campos obligatorios (*)";

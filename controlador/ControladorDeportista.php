@@ -10,10 +10,10 @@
 			$this->daoDeportista = new DaoDeportista();		
 		}
 		
-		public function insertarDeportista($indentificador, $nombre, $apellidos, $fechaNacimiento, $sexo, $identificacion, 
+		public function insertarDeportista($nombre, $apellidos, $fechaNacimiento, $sexo, $identificacion, 
 			                               $tipoIdentificacion, $ciudad, $clubAfiliado, $nacionalidad, $estado, $edad, $categoria){
 			
-			$deportista = new Deportista($indentificador, $nombre, $apellidos, $fechaNacimiento, $sexo, $identificacion, 
+			$deportista = new Deportista($nombre, $apellidos, $fechaNacimiento, $sexo, $identificacion, 
 				                         $tipoIdentificacion, $ciudad, $clubAfiliado, $nacionalidad, $estado, $edad, $categoria);
 				                         			
 			$this->daoDeportista->insertarDeportista($deportista);

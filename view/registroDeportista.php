@@ -1,3 +1,16 @@
+<?php	
+   session_start();
+
+  	if(@$_SESSION['acceso'] == 1){
+  		
+  	}else{
+  		echo "<script type='text/javascript' language='javascript'>
+  				location.href='../index.php';
+  			</script>";	
+  	}
+?>
+
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -53,9 +66,7 @@
 							<input id="nro_id"   type="text"  class="form-control" placeholder="Nro Identificación"/>
 							<input id="pais"     type="text"  class="form-control" placeholder="País"/>
 							<input id="ciudad"   type="text"  class="form-control" placeholder="Ciudad"/>
-
-							<!--ACOMODAR SESION PARA SACAR EL NOMBRE DEL CLUB php echo $_SESSION['club'] -->
-							<div id="club" style="display: none;"></div>   
+							<div id="club" style="display: none;"><?php echo $_SESSION['usuario']?></div>   
 
 							<a class="btn enviar registrar_deportista">Registrar</a>
                 			<div id="respuesta_deportista"></div>

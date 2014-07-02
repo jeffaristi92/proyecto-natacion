@@ -2,7 +2,7 @@
 
 require_once ('ControladorLogin.php');
 
-  @$usuario = $_GET['usuario'];
+  @$usuario = strtoupper($_GET['usuario']);
   @$contrasenia = $_GET['password'];
 
   $controlador = new ControladorLogin($usuario, $contrasenia);  

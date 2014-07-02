@@ -2,10 +2,10 @@
 
 	class Deportista {
  	
-    	private $indentificador, $nombre, $apellidos, $fechaNacimiento, $sexo, $identificacion, $tipoIdentificacion, $ciudad, $clubAfiliado, $nacionalidad, $estado, $edad, $categoria;
+    	private $nombre = '', $apellidos = '', $fechaNacimiento = '', $sexo = '', $identificacion = '', $tipoIdentificacion = '', $ciudad = '', $clubAfiliado = '', $nacionalidad = '', $estado = '', $edad = '', $categoria = '';
         
-        public function __construct($indentificador, $nombre, $apellidos, $fechaNacimiento, $sexo, $identificacion, $tipoIdentificacion, $ciudad, $clubAfiliado, $nacionalidad, $estado, $edad, $categoria){
-            $this->indentificador = $indentificador;
+        public function __construct($nombre, $apellidos, $fechaNacimiento, $sexo, $identificacion, $tipoIdentificacion, $ciudad, $clubAfiliado, $nacionalidad, $estado, $edad, $categoria){
+            
 			$this->nombre = $nombre;
 			$this->apellidos = $apellidos;
 			$this->fechaNacimiento = $fechaNacimiento;
@@ -27,11 +27,7 @@
         public function setCategoria($categoria) {
             $this->categoria = $categoria;
         }
-
-        public function setIndentificador($indentificador) {
-            $this->indentificador = $indentificador;
-        }
-
+        
         public function setNombre($nombre) {
             $this->nombre = $nombre;
         }
@@ -106,10 +102,6 @@
 
         public function getIdentificacion() {
             return $this->identificacion;
-        }
-
-        public function getTiempoIdentificacion() {
-            return $this->tipoIdentificacion;
         }
 
         public function getCiudad() {
