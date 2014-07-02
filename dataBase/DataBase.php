@@ -3,7 +3,8 @@
 	class DataBase{
 	
 		private $servidor = 'localhost';		
-		private $dbName = 'clubtubu_app';
+		//private $dbName = 'clubtibu_app';
+		private $dbName = 'natacion';
 		private $user = 'root';		
 		private $password = 'john123';
 		private $mysqli;

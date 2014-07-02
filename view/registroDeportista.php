@@ -15,7 +15,7 @@
 	      <script src="js/respond.min.js"></script>
 	    <![endif]-->
 	    <script type="text/javascript" src="../js/jquery.js"></script>
-	    <script type="text/javascript" src="../js/scripts.js"></script>
+	    <script type="text/javascript" src="../js/registroDeportista.js"></script>
 		<script type="text/javascript" src="../js/prefixfree.min.js"></script> 
    		<script type="text/javascript" src="../js/bootstrap.min.js"></script>   
    		<script type="text/javascript" src="../js/jquery-ui.js"></script>
@@ -29,27 +29,49 @@
 	<div class="container deportista">
 		<div class="row">
 			<div class="wrapper">
-				<h4>Registro Deportistas</h4>		
+				<h4>Registro Deportista</h4>		
 				
          		<div class="col-md-12">
 	
               		<form class="form-signin" role="form" method="GET">              			
-                		<input id="nombre"       type="text"   class="form-control" placeholder="Nombre" autofocus/>
-                		<input id="ingredientes" type="text"   class="form-control" placeholder="Apellidos"/>
-                		<input id="fecha"   type="text"      class="form-control" placeholder="Fecha"/>
-                	
-                		<select id="activo" class="form-control">
-                    		<option value="si">Activo</option>
-                    		<option value="no">No Activo</option>
-                		</select>
-                		<a class="btn enviar registrar_plato">Registrar</a>
-                		<div id="respuesta_plato"></div>
+
+              			<div class="col-md-6">
+              				<input id="nombres"   type="text"   class="form-control" placeholder="Nombres *" autofocus/>
+                			<input id="apellidos" type="text"   class="form-control" placeholder="Apellidos *"/>
+							<select id="sexo" class="form-control">
+                    			<option value="si">Varon</option>
+                    			<option value="no">Dama</option>
+                			</select>
+							<input id="fecha" type="text"   class="form-control" placeholder="Fecha Nacimiento *"/>
+              			</div>						
+						<div class="col-md-6">
+              				<select id="id" class="form-control">
+                    			<option value="si">T.I</option>
+                    			<option value="no">C.C</option>
+                			</select>
+								
+							<input id="nro_id"   type="text"  class="form-control" placeholder="Nro Identificación"/>
+							<input id="pais"     type="text"  class="form-control" placeholder="País"/>
+							<input id="ciudad"   type="text"  class="form-control" placeholder="Ciudad"/>
+
+							<!--ACOMODAR SESION PARA SACAR EL NOMBRE DEL CLUB php echo $_SESSION['club'] -->
+							<div id="club" style="display: none;"></div>   
+
+							<a class="btn enviar registrar_deportista">Registrar</a>
+                			<div id="respuesta_deportista"></div>
+						</div>	
 			        </form>
 			    </div>
           		
         	</div>
 		</div><!--FIN del row-->	
 	</div><!--FIN container-->	
+	
+	<script>
+      $( ".registrar_deportista" ).click(function() {
+        registrarDeportista();
+      });
+    </script>
 
 	</body>
 </html>

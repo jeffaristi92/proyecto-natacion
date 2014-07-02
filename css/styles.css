@@ -34,7 +34,7 @@ img{
 	cursor: pointer;
 }
 .menu .navbar-nav {
-	float: none;
+	float: left;
 }
 
 .menu .navbar-nav>li{
@@ -55,4 +55,22 @@ img{
 }
 .container .wrapper{
 	padding: 15px;
+}
+.deportista h4{
+	margin-bottom: 20px;
+}
+.deportista form input{
+	margin-bottom: 15px;
+}
+.deportista form select{
+	margin-bottom: 15px;	
+}
+
+.deportista .btn.enviar{
+	background-color: rgb(197, 197, 197);
+	color: black;
+	margin-top: 5px;
+	margin-bottom: 20px;
+	float: right;
+	padding: 15px 20px;
 }

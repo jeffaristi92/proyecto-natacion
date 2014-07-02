@@ -1,9 +1,10 @@
 <?php
 
-	require_once ('../DataBase/DataBase.php');
-	require_once ('../Logico/Deportista.php');
+	require_once ('../dataBase/DataBase.php');
+	require_once ('../logico/Deportista.php');
 	
 	class DaoDeportista {
+
 		private $conexionBd;
 
 		public function __construct(){		
@@ -19,11 +20,13 @@
 		        $stmt->bind_param('ssssssssssis',$deportista->getNombre(),$deportista->getApellidos(),$deportista->getFechaNacimiento(),$deportista->getSexo(),$deportista->getIdentificacion(),$deportista->getTipoIdentificacion(),$deportista->getCiudad(),$deportista->getClubAfiliado(),$deportista->getNacionalidad(),$deportista->getEstado(),$deportista->getEdad(),$deportista->getCategoria());  
 		        $stmt->execute();   
 		        $stmt->store_result();		        
-	        	echo "*Deportista registrado con éxito";//mensaje para mostrar al usuario
+		        //mensaje para mostrar al usuario
+	        	echo "*Deportista registrado con éxito";
 	        }//Fin consulta
+	        	
+	        	echo "*Deportista registrado con éxito";
 
 			$this->conexionBd->desconectar($conexion);			
-		}
-		
+		}		
 	}
 ?>
