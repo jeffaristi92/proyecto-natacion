@@ -29,6 +29,23 @@
 	        echo ''.$deportista->getNombre().' '.$deportista->getApellidos().' '. $deportista->getFechaNacimiento().' '. $deportista->getSexo().' '. $deportista->getIdentificacion() .' '.$deportista->getTipoIdentificacion() .' '.$deportista->getCiudad().' '. $deportista->getClubAfiliado().' '. $deportista->getNacionalidad().' '. $deportista->getEstado().' '. $deportista->getEdad().' '. $deportista->getCategoria();
 
 			$this->conexionBd->desconectar($conexion);			
+		}
+		
+		public function getDeportistasClub($club){
+			$conexion = $this->conexionBd->conectar();	
+			if ($stmt = $conexion->prepare("SELECT fechanacimientodeportista, sexodeportista, identificadordeportista, nombresdeportista, apellidosdeportista FROM deportista WHERE deportista.clubafiliaciondeportista = ? order by nombresdeportista;")){
+				$stmt->bind_param('s',$club);        		
+				$stmt->execute();   
+		        $stmt->store_result();			
+	        	$stmt->bind_result($fecha,$sexo,$identificador,$nombre,$apellido);
+	       		$items = array();
+				       		
+	       		while ($stmt->fetch()) {
+				echo '<option value="'.$identificador."-".$sexo."-".$fecha.'">'.$nombre.'  '.$apellido.'</option>';	
+    			}	        	
+	        }
+
+			$this->conexionBd->desconectar($conexion);
 		}		
 	}
 ?>
