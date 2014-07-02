@@ -19,5 +19,9 @@
 			$this->daoDeportista->insertarDeportista($deportista);
 			//$this->daoDeportista->actualizarEdad();
 		}
+		
+		public function listarDeportistasClub($club){
+			$this->daoDeportista->getDeportistasClub($club);
+		}
 	}
 ?>

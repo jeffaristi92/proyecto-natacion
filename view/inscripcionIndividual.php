@@ -1,3 +1,15 @@
+<?php	
+   session_start();
+
+  	if(@$_SESSION['acceso'] == 1){
+  		
+  	}else{
+  		echo "<script type='text/javascript' language='javascript'>
+  				location.href='../index.php';
+  			</script>";	
+  	}
+?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -16,13 +28,54 @@
 	    <script type="text/javascript" src="../js/jquery.js"></script>
 	    <script type="text/javascript" src="../js/scripts.js"></script>
 		<script type="text/javascript" src="../js/prefixfree.min.js"></script> 
-   		<script type="text/javascript" src="../js/bootstrap.min.js"></script>   
+   		<script type="text/javascript" src="../js/bootstrap.min.js"></script> 
+        <script type="text/javascript" src="../js/registroInscripcion.js"></script>   
    		
 	</head>
 	<body>
 
 	<!--Incluimos el menu-->	
 	<?php include 'menu.php' ?>
+    
+	<div class="container deportista">
+		<div class="row">
+			<div class="wrapper">
+				<h4>Registro Inscripciones Individuales</h4>		
+				
+         		<div class="col-md-12">
+	
+              		<form class="form-signin" role="form" method="GET">              			
+
+              			<div class="col-md-6">
+                        <h5>Deportistas</h5>
+              				<select id="listaDeportistas" name="listaDeportistas[]" multiple="multiple" onChange="listarPruebas()">
+                            <?php
+                            	require_once ('../controlador/ControladorDeportista.php');
+								$controaldor = new ControladorDeportista();
+								$controaldor->listarDeportistasClub($_SESSION['usuario']);
+							?>
+                    		</select>
+              			</div>						
+						<div class="col-md-6">
+                        <h5>Pruebas</h5>
+              				
+                            <div id="listaPruebasR"></div>
+                    		
+							<a class="btn enviar registrar_inscripcion">Registrar</a>
+                			<div id="respuesta_inscripcion"></div>
+						</div>	
+			        </form>
+			    </div>
+          		
+        	</div>
+		</div><!--FIN del row-->	
+	</div><!--FIN container-->	
+	
+	<script>
+      $( ".registrar_inscripcion" ).click(function() {
+        registrarInscripcion();
+      });
+    </script>
 
 	</body>
 </html>

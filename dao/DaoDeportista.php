@@ -58,8 +58,25 @@
 	       		$items = array();
 				       		
 	       		while ($stmt->fetch()) {
-				echo '<option value="'.$identificador."-".$sexo."-".$fecha.'">'.$nombre.'  '.$apellido.'</option>';	
+				echo '<option value="'.$identificador."*".$sexo."*".$fecha.'">'.$nombre.'  '.$apellido.'</option>';	
     			}	        	
+	        }
+
+			$this->conexionBd->desconectar($conexion);
+		}
+		
+		public function getTiempoInscripcion($deportista,$prueba){
+			$conexion = $this->conexionBd->conectar();	
+			if ($stmt = $conexion->prepare("select min(tiemporesultadohd) from (select distanciaprueba from prueba where codigoprueba = ?) as prueba, (select distanciaprueba, tiemporesultadohd from (select* from historialdeportivo where codigodeportista = ?) as hddeportista, (select* from prueba where codigoprueba in (select codigopruebahd from historialdeportivo where codigodeportista = ?)) as pruebashddeportista where hddeportista.codigopruebahd = pruebashddeportista.codigoprueba) as listaPruebas where prueba.distanciaprueba = listapruebas.distanciaprueba")){
+				$stmt->bind_param('iii',$prueba,$deportista,$deportista);        		
+				$stmt->execute();   
+		        $stmt->store_result();			
+	        	$stmt->bind_result($tiempo);
+	       		$items = array();
+				       		
+	       		$stmt->fetch();
+				return $tiempo;	
+    			        	
 	        }
 
 			$this->conexionBd->desconectar($conexion);

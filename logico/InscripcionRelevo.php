@@ -1,8 +1,20 @@
 <?php
 
-public class InscripcionRelevo {
+    class InscripcionRelevo {
     
     private $codigoTorneo, $codigoPrueba, $codigoClub, $deportistas, $serie, $carril, $tiempoResultado, $observacion, $fechaPrueba;
+	
+	public function __construct($codigoTorneo, $codigoPrueba, $codigoClub, $deportistas, $serie, $carril, $tiempoResultado, $observacion, $fechaPrueba){
+		$this->codigoTorneo = $codigoTorneo;
+		$this->codigoPrueba = $codigoPrueba;
+		$this->codigoClub = $codigoClub;
+		$this->deportistas = $deportistas;
+		$this->serie = $serie;
+		$this->carril = $carril;
+		$this->tiempoResultado = $tiempoResultado;
+		$this->observacion = $observacion;
+		$this->fechaPrueba = $fechaPrueba;
+	}
 
     public function setCodigoTorneo($codigoTorneo) {
         $this->codigoTorneo = $codigoTorneo;

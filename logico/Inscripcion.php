@@ -3,6 +3,13 @@
 	class Inscripcion {
     
     private $codigoDeportista, $codigoTorneo, $codigoPrueba, $tiempoInscripcion;
+	
+	public function __construct($codigoDeportista, $codigoTorneo, $codigoPrueba, $tiempoInscripcion){
+		$this->codigoDeportista = $codigoDeportista;
+		$this->codigoTorneo = $codigoTorneo;
+		$this->codigoPrueba = $codigoPrueba;
+		$this->tiempoInscripcion = $tiempoInscripcion;
+	}
 
     public function getCodigoDeportista() {
         return $this->codigoDeportista;

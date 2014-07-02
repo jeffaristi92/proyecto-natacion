@@ -23,7 +23,7 @@
 				$items = array();
 				       		
 	       		while ($stmt->fetch()) {
-				echo '<option value="'.$codigo.'">J'.$jornada.' '.$orden.' '.$distancia.' '.$categoria.'</option>';	
+				echo '<option value="'.$codigo.'">'.$orden.' J'.$jornada.' '.$distancia.' '.$categoria.'</option>';	
     			}			        
 	        }//Fin consulta
 
@@ -46,7 +46,7 @@ WHERE pruebaEvento.codigoPrueba = prueba.codigoprueba and
 				$items = array();
 				       		
 	       		while ($stmt->fetch()) {
-				echo '<option value="'.'">'.$codigotorneo.$codigoprueba.$jornadaprueba.$diaprueba.$ordenprueba.$distanciaprueba.$sexoprueba.$categoria.$tipoprueba.'</option>';	
+				echo '<option value="'.$codigoprueba.'">'.$ordenprueba.' J'.$jornadaprueba.' '.$distanciaprueba.' '.$sexoprueba.' '.$categoria.' '.$tipoprueba.'</option>';	
     			}			        
 	        }//Fin consulta
 
@@ -66,7 +66,7 @@ WHERE pruebaEvento.codigoPrueba = prueba.codigoprueba and
 				$items = array();
 				       		
 	       		while ($stmt->fetch()) {
-				echo '<option value="'.'">'.$codigoprueba.$distanciaprueba.$jornadaprueba.$ordenprueba.'</option>';	
+				echo '<option value="'.$codigoprueba.'">'.$ordenprueba.' J'.$jornadaprueba.' '.$distanciaprueba.'</option>';	
     			}			        
 	        }//Fin consulta
 
@@ -86,7 +86,7 @@ WHERE pruebaEvento.codigoPrueba = prueba.codigoprueba and
 				$items = array();
 				       		
 	       		while ($stmt->fetch()) {
-				echo '<option value="'.'">'.$codigotorneo,$codigoprueba,$jornadaprueba,$diaprueba,$ordenprueba,$distanciaprueba,$sexoprueba,$categoria,$tipoprueba.'</option>';	
+				echo '<option value="'.$codigoprueba.'">'.$ordenprueba.' J'.$jornadaprueba.' '.$distanciaprueba.' '.$sexoprueba.' '.$categoria.' '.$tipoprueba.'</option>';	
     			}			        
 	        }//Fin consulta
 

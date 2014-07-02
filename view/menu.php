@@ -9,7 +9,7 @@
 					</a>
 			    	<ul class="dropdown-menu" role="menu">
 		            	<li><a href="inscripcionIndividual.php">Realizar Inscripción</a></li>
-		            	<li><a href="#">Consultar Inscripción</a></li>
+		            	<li><a href="consultaInscripcionIndividual.php">Consultar Inscripción</a></li>
 		            	<li class="divider"></li>
 		            	<li><a href="#">Separated link</a></li>
 		          	</ul>
@@ -20,7 +20,7 @@
 					</a>
 		          	<ul class="dropdown-menu" role="menu">
 			           	<li><a href="inscripcionRelevos.php">Realizar Inscripción</a></li>
-		           		<li><a href="#">Consultar Inscripción</a></li>
+		           		<li><a href="consultaInscripcionRelevos.php">Consultar Inscripción</a></li>
 		           		<li class="divider"></li>
 		          		<li><a href="#">Separated link</a></li>
 		          	</ul>

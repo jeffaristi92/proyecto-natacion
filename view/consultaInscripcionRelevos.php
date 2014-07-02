@@ -40,7 +40,7 @@
     <div class="container deportista">
 		<div class="row">
 			<div class="wrapper">
-				<h4>Registro Inscripciones Relevos</h4>		
+				<h4>Consulta Inscripciones Relevos</h4>		
 				
          		<div class="col-md-12">
 	
@@ -52,10 +52,10 @@
                             <?php
                             	require_once ('../controlador/ControladorPrueba.php');
 								$controaldor = new ControladorPrueba();
-								$controaldor->listarPruebasRelevo();
+								$controaldor->listarPruebasRelevoInscritas($_SESSION['usuario']);
 							?>
                     		</select>
-							<a class="btn enviar registrar_inscripcion_relevo">Registrar</a>
+							<a class="btn enviar eliminar_inscripcion_relevo">Eliminar</a>
                 			<div id="respuesta_inscripcion"></div>
 						</div>							
 			        </form>
@@ -66,8 +66,8 @@
 	</div><!--FIN container-->	
 	
 	<script>
-      $( ".registrar_inscripcion_relevo" ).click(function() {
-        registrarInscripcionRelevo();
+      $( ".eliminar_inscripcion_relevo" ).click(function() {
+        eliminarInscripcionRelevo();
       });
     </script>
 		
