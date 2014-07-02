@@ -22,11 +22,11 @@
 		        $stmt->store_result();		        
 		        //mensaje para mostrar al usuario
 	        	//echo "*Deportista registrado con éxito";
-	        	// $deportista->getApellidos() $deportista->getFechaNacimiento() $deportista->getSexo() $deportista->getIdentificacion() $deportista->getTipoIdentificacion() $deportista->getCiudad() $deportista->getClubAfiliado() $deportista->getNacionalidad() $deportista->getEstado() $deportista->getEdad() $deportista->getCategoria()";
+	        	// ";
 	        	
 	        }//Fin consulta
 
-	        echo 'john';
+	        echo ''.$deportista->getNombre().' '.$deportista->getApellidos().' '. $deportista->getFechaNacimiento().' '. $deportista->getSexo().' '. $deportista->getIdentificacion() .' '.$deportista->getTipoIdentificacion() .' '.$deportista->getCiudad().' '. $deportista->getClubAfiliado().' '. $deportista->getNacionalidad().' '. $deportista->getEstado().' '. $deportista->getEdad().' '. $deportista->getCategoria();
 
 			$this->conexionBd->desconectar($conexion);			
 		}		
