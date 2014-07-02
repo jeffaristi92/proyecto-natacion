@@ -30,6 +30,23 @@
 
 			$this->conexionBd->desconectar($conexion);			
 		}
+
+		public function actualizarEdad() {
+
+        $conexion = $this->conexionBd->conectar();
+
+			$stmt = $conexion->prepare("update deportista set edad = (select extract(year from current_date) - (select extract(year from fechanacimientodeportista)))::int");
+			$stmt->execute();   
+            $stmt = $conexion->prepare("select* into categoriasDeportista from categoria where nombrecategoria <> 'abierta' and nombrecategoria <> 'D' and nombrecategoria <> 'E' and nombrecategoria <>'F' and nombrecategoria <>'Infantil' and nombrecategoria <>'Junior' and nombrecategoria <>'Mayor'");
+            $stmt->execute();   
+            $stmt = $conexion->prepare("update deportista set categoria =(select nombrecategoria 
+            	from categoriasDeportista where deportista.edad between edadiniciocategoria and edadfincategoria)");
+            $stmt->execute();   
+            $stmt = $conexion->prepare("drop table categoriasDeportista");
+            $stmt->execute();   
+
+			$this->conexionBd->desconectar($conexion);			
+		}
 		
 		public function getDeportistasClub($club){
 			$conexion = $this->conexionBd->conectar();	
