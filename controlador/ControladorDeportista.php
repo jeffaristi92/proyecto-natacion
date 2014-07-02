@@ -1,17 +1,17 @@
 <?php
-	require_once ('../Dao/DaoUsuario.php');
-	require_once ('../Logico/Usuario.php');
+	require_once ('../Dao/DaoDeportista.php');
+	require_once ('../Logico/Deportista.php');
 	
-	class ControladorUsuario{
-		private $daoUsuario;
+	class ControladorDeportista{
+		private $daoDeportista;
 		
 		public function __construct(){
-			$this->daoUsuario = new DaoUsuario();		
+			$this->daoDeportista = new DaoDeportista();		
 		}
 		
-		public function insertarUsuario($usuario,$contrasena,$rol,$idEmpresa){
-			$Usuario = new Usuario($usuario,$contrasena,$rol,$idEmpresa);			
-			$this->daoUsuario->insertarUsuario($Usuario);
+		public function insertarDeportista($indentificador, $nombre, $apellidos, $fechaNacimiento, $sexo, $identificacion, $tipoIdentificacion, $ciudad, $clubAfiliado, $nacionalidad, $estado, $edad, $categoria){
+			$deportista = new Deportista($indentificador, $nombre, $apellidos, $fechaNacimiento, $sexo, $identificacion, $tipoIdentificacion, $ciudad, $clubAfiliado, $nacionalidad, $estado, $edad, $categoria);			
+			$this->daoDeportista->insertarDeportista($deportista);
 		}
 	}
 ?>

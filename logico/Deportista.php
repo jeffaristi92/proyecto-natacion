@@ -2,18 +2,22 @@
 
 	class Deportista {
  	
-    	private $indentificador, $nombre, $apellidos, $fechaNacimiento, $sexo, $identificacion;
-        private $tipoIdentificacion, $ciudad, $clubAfiliado, $nacionalidad, $estado, $edad, $categoria;
+    	private $indentificador, $nombre, $apellidos, $fechaNacimiento, $sexo, $identificacion, $tipoIdentificacion, $ciudad, $clubAfiliado, $nacionalidad, $estado, $edad, $categoria;
         
-        public function __construct($usuario, $contrasena, $rol, $idEmpresa){
-            $this->usuario = $usuario;
-            $this->contrasena = $contrasena;
-            $this->rol = $rol;
-            $this->idEmpresa = $idEmpresa;
-        }
-        
-    	public function getTipoIdentificacion() {
-            return $this->tipoIdentificacion;
+        public function __construct($indentificador, $nombre, $apellidos, $fechaNacimiento, $sexo, $identificacion, $tipoIdentificacion, $ciudad, $clubAfiliado, $nacionalidad, $estado, $edad, $categoria){
+            $this->indentificador = $indentificador;
+			$this->nombre = $nombre;
+			$this->apellidos = $apellidos;
+			$this->fechaNacimiento = $fechaNacimiento;
+			$this->sexo = $sexo;
+			$this->identificacion = $identificacion;
+			$this->tipoIdentificacion = $tipoIdentificacion;
+			$this->ciudad = $ciudad;
+			$this->clubAfiliado = $clubAfiliado;
+			$this->nacionalidad = $nacionalidad;
+			$this->estado = $estado;
+			$this->edad = $edad;
+			$this->categoria = $categoria;
         }
 
         public function setEdad($edad) {
@@ -22,10 +26,6 @@
 
         public function setCategoria($categoria) {
             $this->categoria = $categoria;
-        }
-
-        public function getEdad() {
-            return $this->edad;
         }
 
         public function setIndentificador($indentificador) {
@@ -75,7 +75,15 @@
         public function setEstado($estado) {
             $this->estado = $estado;
         }
+		
+		public function getTipoIdentificacion() {
+            return $this->tipoIdentificacion;
+        }
 
+        public function getEdad() {
+            return $this->edad;
+        }
+		
         public function getIndentificador() {
             return $this->indentificador;
         }

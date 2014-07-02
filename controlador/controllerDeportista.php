@@ -2,12 +2,7 @@
 
 require_once ('ControladorDeportista.php');
 
-  @$usuario = $_GET['usuario'];
-  @$contrasenia = $_GET['password'];
 
-  $controlador = new ControladorLogin($usuario, $contrasenia);  
-  $resultado = $controlador->verificarLogin();
-
-  //enviando la respuesta a scripts.js para manejar redireccionamiento
-  echo $resultado;  
+  $controlador = new ControladorDeportista();  
+  $controlador->insertarDeportista(1,'jeff','guarin','1992-10-31','Varon','1144163369','C.C', 'Cali','TIBV','Colombia','habilitado',21,'A'); 
 ?>
