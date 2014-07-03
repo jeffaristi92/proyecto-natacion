@@ -19,14 +19,21 @@
 	        
 		        $stmt->bind_param('ssssssssssis',$deportista->getNombre(),$deportista->getApellidos(),$deportista->getFechaNacimiento(),$deportista->getSexo(),$deportista->getIdentificacion(),$deportista->getTipoIdentificacion(),$deportista->getCiudad(),$deportista->getClubAfiliado(),$deportista->getNacionalidad(),$deportista->getEstado(),$deportista->getEdad(),$deportista->getCategoria());  
 		        $stmt->execute();   
-		        $stmt->store_result();		        
+		        $stmt->store_result();
+				$resultado = mysqli_stmt_affected_rows($stmt);	        
+	        	if($resultado != -1){
+					echo '*Deportista registrado exitosamente<br>';
+					echo ''.$deportista->getNombre().' '.$deportista->getApellidos().' '. $deportista->getFechaNacimiento().' '. $deportista->getSexo().' '. $deportista->getIdentificacion() .' '.$deportista->getTipoIdentificacion() .' '.$deportista->getCiudad().' '. $deportista->getClubAfiliado().' '. $deportista->getNacionalidad().' '. $deportista->getEstado().'<br>';
+				}else{
+					echo '*El deportista con Nro Identificacion: '.$deportista->getIdentificacion().' ya esxiste<br>';
+					echo '*No se pudo registrar el deportista<br>';
+				}
+						        
 		        //mensaje para mostrar al usuario
 	        	//echo "*Deportista registrado con éxito";
 	        	// ";
 	        	
 	        }//Fin consulta
-
-	        echo ''.$deportista->getNombre().' '.$deportista->getApellidos().' '. $deportista->getFechaNacimiento().' '. $deportista->getSexo().' '. $deportista->getIdentificacion() .' '.$deportista->getTipoIdentificacion() .' '.$deportista->getCiudad().' '. $deportista->getClubAfiliado().' '. $deportista->getNacionalidad().' '. $deportista->getEstado().' '. $deportista->getEdad().' '. $deportista->getCategoria();
 
 			$this->conexionBd->desconectar($conexion);			
 		}
@@ -35,16 +42,10 @@
 
         $conexion = $this->conexionBd->conectar();
 
-			$stmt = $conexion->prepare("update deportista set edad = (select extract(year from current_date) - (select extract(year from fechanacimientodeportista)))::int");
+			$stmt = $conexion->prepare("update deportista set edad = (select extract(year from current_date)) - (select extract(year from fechanacimientodeportista))");
 			$stmt->execute();   
-            $stmt = $conexion->prepare("select* into categoriasDeportista from categoria where nombrecategoria <> 'abierta' and nombrecategoria <> 'D' and nombrecategoria <> 'E' and nombrecategoria <>'F' and nombrecategoria <>'Infantil' and nombrecategoria <>'Junior' and nombrecategoria <>'Mayor'");
+            $stmt = $conexion->prepare("update deportista set categoria =(select nombrecategoria from (select* from categoria where nombrecategoria <> 'abierta' and nombrecategoria <> 'D' and nombrecategoria <> 'E' and nombrecategoria <> 'F' and nombrecategoria <> 'Infantil' and nombrecategoria <> 'Junior' and nombrecategoria <> 'Mayor' and nombrecategoria <> 'Senior') as categoriasdeportista where deportista.edad between edadiniciocategoria and edadfincategoria)");
             $stmt->execute();   
-            $stmt = $conexion->prepare("update deportista set categoria =(select nombrecategoria 
-            	from categoriasDeportista where deportista.edad between edadiniciocategoria and edadfincategoria)");
-            $stmt->execute();   
-            $stmt = $conexion->prepare("drop table categoriasDeportista");
-            $stmt->execute();   
-
 			$this->conexionBd->desconectar($conexion);			
 		}
 		

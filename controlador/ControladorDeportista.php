@@ -17,7 +17,7 @@
 				                         $tipoIdentificacion, $ciudad, $clubAfiliado, $nacionalidad, $estado, $edad, $categoria);
 				                         			
 			$this->daoDeportista->insertarDeportista($deportista);
-			//$this->daoDeportista->actualizarEdad();
+			$this->daoDeportista->actualizarEdad();
 		}
 		
 		public function listarDeportistasClub($club){
