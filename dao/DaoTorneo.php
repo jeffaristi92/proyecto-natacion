@@ -1,25 +1,32 @@
 <?php
 
 	require_once ('../DataBase/DataBase.php');
-	require_once ('../Logico/Usuario.php');
+	require_once ('../Logico/Torneo.php');
 	
-	class DaoUsuario {
+	class DaoTorneo {
 		private $conexionBd;
 
 		public function __construct(){		
 			$this->conexionBd = new DataBase();
 		}
 		
-		public function insertarUsuario($usuario){			
+		public function getInformacionTorneo($torneo){			
 			
 			$conexion = $this->conexionBd->conectar();
 
-			if ($stmt = $conexion->prepare("INSERT INTO `Usuario`(`usuario`, `contrasena`, `rol`, `idEmpresa`) VALUES (?,?,?,?)")){
+			if ($stmt = $conexion->prepare("SELECT `nombretorneo`, `fechainiciotorneo`, `ciudadtorneo`, `nombreorganizadortorneo` FROM `torneo` WHERE `codigotorneo` = ?")){
 	        
-		        $stmt->bind_param('ssss',$usuario->getUsuario(),$usuario->getContrasena(),$usuario->getRol(),$usuario->getIdEmpresa());  
+		        $stmt->bind_param('s',$torneo);  
 		        $stmt->execute();   
-		        $stmt->store_result();		        
-	        	echo "*Usuario registrado con éxito";//mensaje para mostrar al usuario
+		        $stmt->store_result();
+				$stmt->bind_result($nombre,$fecha,$ciudad,$organizador);
+				$items = array();
+				$stmt->fetch();
+
+				echo '<tr><td>'.$nombre.'</td></tr>';
+				echo '<tr><td>'.$organizador.'</td></tr>';
+				echo '<tr><td>'.$fecha.', '.$ciudad.'</td></tr>';
+    			
 	        }//Fin consulta
 
 			$this->conexionBd->desconectar($conexion);			

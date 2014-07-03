@@ -1,6 +1,4 @@
 <?php
-package Logico;
-
 	class Torneo {
 
     private $codigoTorneo, $nombreTorneo, $fechaInicioTorneo, $ciudadTorneo, $nombreOrganizadorTorneo, $tipoTorneo,$largoPiscinaTorneo, $cantidadCarrilesTorneo, $numeroPruebasPorJornada, $numeroPruebasPorTorneo, $fechaInicioInscripciones, $fechaFinInscripciones;
