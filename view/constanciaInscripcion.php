@@ -1,10 +1,17 @@
+<?php	
+   session_start();
+   $opcion = @$_GET['opcion'];
+
+	if(@$_SESSION['acceso'] == 1){
+	}else{
+		echo "<script type='text/javascript' language='javascript'>
+				location.href='../index.php';
+			</script>";	
+	}	
+?>
 <?php
-	require_once ('DaoDeportista.php');
-	require_once ('DaoPrueba.php');
-	require_once ('DaoInscripcion.php');
-	require_once ('DaoTorneo.php');
-	
-	session_start(); 
+	require_once ('../dao/DaoInscripcion.php');
+	require_once ('../dao/DaoTorneo.php');
 	$dao3 = new DaoInscripcion();
 	$dao4 = new DaoTorneo();
 ?>
@@ -34,6 +41,7 @@
 	$dao3->getDeportistasInscritosClub($_SESSION['usuario']);
 	echo '</table>';
 ?>
+<a href="javascript:print()">Imprimir</a>
 </div>
 </body>
 </html>

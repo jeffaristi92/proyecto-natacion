@@ -25,7 +25,7 @@
 		          		<li><a href="#">Separated link</a></li>
 		          	</ul>
 					</li>
-					<li><a href="#" class="clientes">Constancia Inscripción</a></li>								
+					<li><a href="constanciaInscripcion.php" class="clientes" target="_blank">Constancia Inscripción</a></li>								
 					<li><a href="registroDeportista.php" class="clientes">Registro Deportista</a></li>	
 					
 			</ul>
