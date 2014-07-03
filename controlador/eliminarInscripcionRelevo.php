@@ -1,6 +1,6 @@
 <?php
 	require_once ('../dao/DaoInscripcion.php');
-	require_once ('../Logico/InscripcionRelevo.php');
+	require_once ('../logico/InscripcionRelevo.php');
 	
 	session_start();
 	$dao3 = new DaoInscripcion();

@@ -50,9 +50,9 @@
                         <h5>Pruebas</h5>
               				<select id="listaPruebas" name="listaPruebas[]" multiple="multiple" onChange="listarPruebas()">
                             <?php
-                            	require_once ('../controlador/ControladorPrueba.php');
-								$controaldor = new ControladorPrueba();
-								$controaldor->listarPruebasRelevoInscritas($_SESSION['usuario']);
+                            	require_once ('../dao/DaoPrueba.php');
+								$dao = new DaoPrueba();
+								$dao->listarPruebasRelevoInscritasClub($_SESSION['usuario']);
 							?>
                     		</select>
 							<a class="btn enviar eliminar_inscripcion_relevo">Eliminar</a>

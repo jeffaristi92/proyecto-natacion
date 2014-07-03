@@ -1,8 +1,8 @@
 <?php
 
-	require_once ('../DataBase/DataBase.php');
-	require_once ('../Logico/Inscripcion.php');
-	require_once ('../Logico/InscripcionRelevo.php');
+	require_once ('../dataBase/DataBase.php');
+	require_once ('../logico/Inscripcion.php');
+	require_once ('../logico/InscripcionRelevo.php');
 	
 	class DaoInscripcion {
 		private $conexionBd;
@@ -111,7 +111,6 @@
 		}
 		
 		public function listarPruebasRelevoInscritasClub($club){			
-			
 			$conexion = $this->conexionBd->conectar();
 
 			if ($stmt = $conexion->prepare("SELECT distanciaprueba,sexoprueba,categoria FROM prueba, (select* from inscripcionrelevos where codigoclub = ?) as pruebasclub WHERE prueba.codigoprueba = pruebasclub.codigoprueba ")){

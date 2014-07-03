@@ -31,7 +31,7 @@ require_once ('../dataBase/DataBase.php');
 	                    session_start();
 	                    $_SESSION['acceso'] = 1;
 						$_SESSION['usuario'] = $usuario;
-						$_SESSION['torneo'] = 4;
+						$_SESSION['torneo'] = 5;
 	                    return true;
 
 	                } else {

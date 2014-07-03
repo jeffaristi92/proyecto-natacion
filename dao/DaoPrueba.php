@@ -34,10 +34,7 @@
 			
 			$conexion = $this->conexionBd->conectar();
 
-			if ($stmt = $conexion->prepare("SELECT codigotorneo, prueba.codigoprueba, jornadaprueba, diaprueba, ordenprueba, distanciaprueba, sexoprueba, categoria, pruebaEvento.tipoprueba  
-FROM  pruebaEvento, prueba 
-WHERE pruebaEvento.codigoPrueba = prueba.codigoprueba and
-      prueba.tipoprueba = 'Relevo' order by ordenprueba")){
+			if ($stmt = $conexion->prepare("SELECT codigotorneo, prueba.codigoprueba, jornadaprueba, diaprueba, ordenprueba, distanciaprueba, sexoprueba, categoria, pruebaevento.tipoprueba  FROM  pruebaevento, prueba WHERE pruebaevento.codigoPrueba = prueba.codigoprueba and prueba.tipoprueba = 'Relevo' order by ordenprueba")){
 	        
 		        //$stmt->bind_param('si',$sexo,$deportista);  
 		        $stmt->execute();   
@@ -77,7 +74,7 @@ WHERE pruebaEvento.codigoPrueba = prueba.codigoprueba and
 			
 			$conexion = $this->conexionBd->conectar();
 
-			if ($stmt = $conexion->prepare("SELECT codigotorneo, prueba.codigoprueba, jornadaprueba, diaprueba, ordenprueba, distanciaprueba, sexoprueba, categoria, pruebaEvento.tipoprueba FROM  pruebaevento, prueba WHERE pruebaevento.codigoprueba = prueba.codigoprueba and prueba.tipoprueba = 'Relevo' and pruebaevento.codigoprueba in (select codigoprueba from inscripcionrelevos where codigoclub = ?) order by ordenprueba")){
+			if ($stmt = $conexion->prepare("SELECT codigotorneo, prueba.codigoprueba, jornadaprueba, diaprueba, ordenprueba, distanciaprueba, sexoprueba, categoria, pruebaevento.tipoprueba FROM  pruebaevento, prueba WHERE pruebaevento.codigoprueba = prueba.codigoprueba and prueba.tipoprueba = 'Relevo' and pruebaevento.codigoprueba in (select codigoprueba from inscripcionrelevos where codigoclub = ?) order by ordenprueba")){
 	        
 		        $stmt->bind_param('s',$club);  
 		        $stmt->execute();   

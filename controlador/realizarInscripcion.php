@@ -1,7 +1,7 @@
 <?php
 	require_once ('../dao/DaoDeportista.php');
 	require_once ('../dao/DaoInscripcion.php');
-	require_once ('../Logico/Inscripcion.php');
+	require_once ('../logico/Inscripcion.php');
 	
 	session_start();
 	$dao = new DaoDeportista();
@@ -13,7 +13,8 @@
 	
 	if($listaPruebas[0]!="null"){
 		for ($i=0; $i<count($listaPruebas); $i++){
-			$inscripcionI = new Inscripcion($codigo,$_SESSION['torneo'],$listaPruebas[$i],$dao->getTiempoInscripcion($codigo,$listaPruebas[$i]));
+			$tiempo = $dao->getTiempoInscripcion($codigo,$listaPruebas[$i]);
+			$inscripcionI = new Inscripcion($codigo,$_SESSION['torneo'],$listaPruebas[$i],$tiempo);
 			$dao3->registrarInscripcionIndividual($inscripcionI);
 		}
 	}else{

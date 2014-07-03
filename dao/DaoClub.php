@@ -1,7 +1,7 @@
 <?php
 
-	require_once ('../DataBase/DataBase.php');
-	require_once ('../Logico/Club.php');
+	require_once ('../dataBase/DataBase.php');
+	require_once ('../logico/Club.php');
 	
 	class DaoClub {
 		private $conexionBd;
