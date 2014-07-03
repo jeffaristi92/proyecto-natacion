@@ -26,7 +26,8 @@
 		          	</ul>
 					</li>
 					<li><a href="constanciaInscripcion.php" class="clientes" target="_blank">Constancia Inscripción</a></li>								
-					<li><a href="registroDeportista.php" class="clientes">Registro Deportista</a></li>	
+					<li><a href="registroDeportista.php" class="clientes">Registro Deportista</a></li>
+                    <li><a href="manual.html" class="clientes">Manual de Usuario</a></li>	
 					
 			</ul>
 			<ul class="pull-right">
