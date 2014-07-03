@@ -40,6 +40,14 @@
 	echo '</tr>';
 	$dao3->getDeportistasInscritosClub($_SESSION['usuario']);
 	echo '</table>';
+	echo '<h3>Relevos</h3>';
+	echo '<table>';
+	echo '<tr>';
+	echo '<td><b>Prueba</b></td>';
+	echo '<td><b>Cat.</b></td>';
+	echo '</tr>';
+	$dao3->listarPruebasRelevoInscritasClub($_SESSION['usuario']);
+	echo '</table>';
 ?>
 <a href="javascript:print()">Imprimir</a>
 </div>

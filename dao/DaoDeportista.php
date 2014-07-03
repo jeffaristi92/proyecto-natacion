@@ -75,8 +75,12 @@
 	       		$items = array();
 				       		
 	       		$stmt->fetch();
-				return $tiempo;	
-    			        	
+				
+				if($tiempo == null){
+					return '99:99:99.99';
+				}else{
+					return $tiempo;	
+				}
 	        }
 
 			$this->conexionBd->desconectar($conexion);

@@ -95,7 +95,7 @@
 			
 			$conexion = $this->conexionBd->conectar();
 
-			if ($stmt = $conexion->prepare("SELECT prueba.distanciaprueba, jornadaprueba,ordenprueba, iscripciondeportista.tiempoinscripcion FROM prueba, pruebaevento, (select codigoprueba, tiempoinscripcion from inscripcion where codigodeportista = ?) as iscripciondeportista WHERE pruebaevento.codigoprueba = prueba.codigoprueba and pruebaevento.codigoprueba = iscripciondeportista.codigoprueba")){
+			if ($stmt = $conexion->prepare("SELECT prueba.distanciaprueba, jornadaprueba,ordenprueba, iscripciondeportista.tiempoinscripcion FROM prueba, pruebaevento, (select codigoprueba, tiempoinscripcion from inscripcion where codigodeportista = ?) as iscripciondeportista WHERE pruebaevento.codigoprueba = prueba.codigoprueba and pruebaevento.codigoprueba = iscripciondeportista.codigoprueba order by ordenprueba")){
 	        
 		        $stmt->bind_param('i',$deportista);  
 		        $stmt->execute();   
@@ -110,13 +110,35 @@
 			$this->conexionBd->desconectar($conexion);			
 		}
 		
+		public function listarPruebasRelevoInscritasClub($club){			
+			
+			$conexion = $this->conexionBd->conectar();
+
+			if ($stmt = $conexion->prepare("SELECT distanciaprueba,sexoprueba,categoria FROM prueba, (select* from inscripcionrelevos where codigoclub = ?) as pruebasclub WHERE prueba.codigoprueba = pruebasclub.codigoprueba ")){
+	        
+		        $stmt->bind_param('s',$club);  
+		        $stmt->execute();   
+		        $stmt->store_result();
+				$stmt->bind_result($distanciaprueba,$sexoprueba,$categoria);
+				$items = array();
+				while($stmt->fetch()){
+					echo '<tr>';
+					echo '<td>'.$distanciaprueba.' '.$sexoprueba.'</td>';
+					echo '<td>'.$categoria.'</td>';
+					echo '</tr>';
+				}
+	        }//Fin consulta
+
+			$this->conexionBd->desconectar($conexion);			
+		}
+		
 		public function getDeportistasInscritosClub($club){			
 			
 			$conexion = $this->conexionBd->conectar();
 
 			if ($stmt = $conexion->prepare("SELECT distinct codigodeportista, nombresdeportista, apellidosdeportista, categoria
 FROM inscripcion, (select* from deportista where clubafiliaciondeportista = ?) as deportistaclub
-WHERE inscripcion.`codigodeportista` = deportistaclub.identificadordeportista")){
+WHERE inscripcion.`codigodeportista` = deportistaclub.identificadordeportista order by nombresdeportista")){
 	        
 		        $stmt->bind_param('s',$club);  
 		        $stmt->execute();   
