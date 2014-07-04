@@ -24,6 +24,12 @@
 	        	if($resultado != -1){
 					echo '*Inscripcion exitosa<br>';
 				}else{
+					$codigo = mysqli_stmt_errno($stmt);
+					if($codigo ==1062){
+						echo '*El deportista ya esa inscrito a la prueba<br>';
+					}else{
+						echo '*El deportista no se puede inscribir a mas pruebas<br>';
+					}
 					echo '*Inscripcion no se pudo hacer<br>';
 				}
 	        }//Fin consulta
@@ -64,6 +70,7 @@
 	        	if($resultado != -1){
 					echo '*Inscripcion exitosa<br>';
 				}else{
+					echo '*El club ya esa inscrito a la prueba<br>';
 					echo '*Inscripcion no se pudo hacer<br>';
 				}
 	        }//Fin consulta
