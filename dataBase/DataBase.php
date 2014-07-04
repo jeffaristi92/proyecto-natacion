@@ -4,9 +4,9 @@
 	
 		private $servidor = 'localhost';		
 		//private $dbName = 'clubtibu_app';
-		private $dbName = 'natacion';
-		private $user = 'root';		
-		private $password = 'john123';
+		private $dbName = 'clubtibu_app';
+		private $user = 'clubtibu_user';		
+		private $password = 'clubtibu3juh4yg4';
 		private $mysqli;
 		
 	    public function conectar() {

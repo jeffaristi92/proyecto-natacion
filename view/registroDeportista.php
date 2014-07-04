@@ -32,6 +32,7 @@
 		<script type="text/javascript" src="../js/prefixfree.min.js"></script> 
    		<script type="text/javascript" src="../js/bootstrap.min.js"></script>   
    		<script type="text/javascript" src="../js/jquery-ui.js"></script>
+   		<script type="text/javascript" src="../js/jquery.placeholder.js"></script>
    		 
 	</head>
 	<body>
@@ -63,7 +64,7 @@
                     			<option value="no">C.C</option>
                 			</select>
 								
-							<input id="nro_id"   type="text"  class="form-control" placeholder="Nro Identificación"/>
+							<input id="nro_id"   type="text"  class="form-control" placeholder="Nro Identificación *"/>
 							<input id="pais"     type="text"  class="form-control" placeholder="País"/>
 							<input id="ciudad"   type="text"  class="form-control" placeholder="Ciudad"/>
 							<div id="club" style="display: none;"><?php echo $_SESSION['usuario']?></div>   
@@ -79,6 +80,8 @@
 	</div><!--FIN container-->	
 	
 	<script>
+	  $('input').placeholder();
+	  
       $( ".registrar_deportista" ).click(function() {
         registrarDeportista();
       });

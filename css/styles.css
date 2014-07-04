@@ -28,9 +28,9 @@ img{
 	text-align: center;
 } 
 .menu .navbar-nav>li>a{
-	font-size: 16px;
+	font-size: 15px;
 	color: rgb(43, 43, 160);
-	padding: 15px 20px;
+	padding: 15px 17px;
 	cursor: pointer;
 }
 .menu .navbar-nav {
@@ -52,6 +52,7 @@ img{
 
 .container{
 	background-color: #fff;
+	box-shadow: 1px 1px 1px rgba(50,50,50,0.09);
 }
 .container .wrapper{
 	padding: 15px;
@@ -62,23 +63,56 @@ img{
 .deportista form input{
 	margin-bottom: 15px;
 }
+select{
+	background-color: rgb(241, 241, 241);
+}
 .deportista form select{
-	margin-bottom: 15px;	
+	margin-bottom: 15px;
 }
 .pull-right {
 	height: 40px;
 }
 .cerrar_sesion{
-	background-color: rgb(197, 197, 197);
-	color: black;
+	background-color: rgb(59, 103, 179);
+	color: #fff;
 	display: inline-block;
 	padding: 15px;
+}
+.cerrar_sesion:hover{
+	color: #fff;
+	text-decoration: none;
+	background-color: #77b8ce;
 }
 .deportista .btn.enviar{
 	background-color: rgb(197, 197, 197);
 	color: black;
 	margin-top: 5px;
 	margin-bottom: 20px;
-	float: right;
+	float: none;
 	padding: 15px 20px;
+	margin-left: 254px;
 }
+.deportista .btn.enviar:hover{
+	background-color: rgb(210, 210, 210);
+}
+#listaDeportistas, #listaPruebas{
+	height: 275px;
+	width: 360px;
+}
+#listaPruebasRelevos{
+	height: 275px;
+	width: 442px;
+}
+.deportista .btn.enviar.registrar_deportista{
+	float: right;
+	margin-left: 0px;
+}
+.deportista .btn.enviar.registrar_inscripcion_relevo, .deportista .btn.enviar.eliminar_inscripcion_relevo{
+	float: none;
+	margin-right: 0;
+	margin-left: 334px;
+}
+
+
+
+

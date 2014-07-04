@@ -2,7 +2,7 @@
 	
 require 'ControladorDeportista.php';
 	
-    if($_GET['nombres'] && $_GET['apellidos'] && $_GET['fechaNacimiento'] && $_GET['sexo'] && $_GET['club']){
+    if($_GET['nombres'] && $_GET['apellidos'] && $_GET['fechaNacimiento'] && $_GET['sexo'] && $_GET['club'] && $_GET['id']){
 
     	@$nombres = $_GET['nombres'];
     	@$apellidos = $_GET['apellidos'];

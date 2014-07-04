@@ -9,9 +9,8 @@
 					</a>
 			    	<ul class="dropdown-menu" role="menu">
 		            	<li><a href="inscripcionIndividual.php">Realizar Inscripción</a></li>
-		            	<li><a href="consultaInscripcionIndividual.php">Consultar Inscripción</a></li>
 		            	<li class="divider"></li>
-		            	<li><a href="#">Separated link</a></li>
+		            	<li><a href="consultaInscripcionIndividual.php">Consultar Inscripción</a></li>
 		          	</ul>
 				</li> 
 				<li>
@@ -20,14 +19,13 @@
 					</a>
 		          	<ul class="dropdown-menu" role="menu">
 			           	<li><a href="inscripcionRelevos.php">Realizar Inscripción</a></li>
+			           	<li class="divider"></li>
 		           		<li><a href="consultaInscripcionRelevos.php">Consultar Inscripción</a></li>
-		           		<li class="divider"></li>
-		          		<li><a href="#">Separated link</a></li>
 		          	</ul>
 					</li>
 					<li><a href="constanciaInscripcion.php" class="clientes" target="_blank">Constancia Inscripción</a></li>								
-					<li><a href="registroDeportista.php" class="clientes">Registro Deportista</a></li>
-                    <li><a href="manual.html" class="clientes">Manual de Usuario</a></li>	
+					<li><a href="registroDeportista.php"    class="clientes">Registro Deportista</a></li>
+                    <li><a href="manual.html" class="clientes" target="_blank">Manual de Usuario</a></li>	
 					
 			</ul>
 			<ul class="pull-right">

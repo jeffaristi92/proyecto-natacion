@@ -48,7 +48,7 @@
 
               			<div class="col-md-6">
                         <h5>Pruebas</h5>
-              				<select id="listaPruebas" name="listaPruebas[]" multiple="multiple" onChange="listarPruebas()">
+              				<select id="listaPruebasRelevos" name="listaPruebas[]" multiple="multiple" onChange="listarPruebas()">
                             <?php
                             	require_once ('../dao/DaoPrueba.php');
 								$dao = new DaoPrueba();
