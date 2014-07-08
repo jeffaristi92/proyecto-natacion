@@ -79,10 +79,15 @@
           		
         	</div>
 		</div><!--FIN del row-->	
-	</div><!--FIN container-->	
-	
+	</div><!--FIN container-->
+    <?php
+		if($_SESSION['admin']==1){
+			echo '<script>';
+			echo 'setClub();';
+			echo '</script>';
+		}
+	?>	
 	<script>
-		setClub();
       $( ".registrar_inscripcion_relevo" ).click(function() {
         registrarInscripcionRelevo();
       });

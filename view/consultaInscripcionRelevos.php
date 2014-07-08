@@ -84,9 +84,14 @@
         	</div>
 		</div><!--FIN del row-->	
 	</div><!--FIN container-->	
-	
+    <?php
+		if($_SESSION['admin']==1){
+			echo '<script>';
+			echo 'listarPruebasRelevoInscritas();';
+			echo '</script>';
+		}
+	?>
 	<script>
-		listarPruebasRelevoInscritas();
       $( ".eliminar_inscripcion_relevo" ).click(function() {
         eliminarInscripcionRelevo();
       });

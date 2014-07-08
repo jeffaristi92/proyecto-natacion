@@ -92,11 +92,14 @@
         	</div>
 		</div><!--FIN del row-->	
 	</div><!--FIN container-->	
-	
-	<script>
-	
-	listarDeportistas(1);
-	
+	<?php
+		if($_SESSION['admin']==1){
+			echo '<script>';
+			echo 'listarDeportistas(1);';
+			echo '</script>';
+		}
+	?>
+	<script>	
       $( ".registrar_inscripcion" ).click(function() {
         registrarInscripcion();
       });

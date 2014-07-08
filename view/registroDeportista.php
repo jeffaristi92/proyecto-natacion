@@ -95,9 +95,14 @@
         	</div>
 		</div><!--FIN del row-->	
 	</div><!--FIN container-->	
-	
+	<?php
+		if($_SESSION['admin']==1){
+			echo '<script>';
+			echo 'setClub();';
+			echo '</script>';
+		}
+	?>
 	<script>
-		setClub();
 	  $('input').placeholder();
 	  
       $( ".registrar_deportista" ).click(function() {

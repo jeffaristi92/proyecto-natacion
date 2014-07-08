@@ -92,10 +92,14 @@
         	</div>
 		</div><!--FIN del row-->	
 	</div><!--FIN container-->	
-	
+	<?php
+		if($_SESSION['admin']==1){
+			echo '<script>';
+			echo 'listarDeportistas(2);';
+			echo '</script>';
+		}
+	?>
 	<script>
-	listarDeportistas(1);
-	
       $( ".eliminar_inscripcion" ).click(function() {
         eliminarInscripcion();
       });
