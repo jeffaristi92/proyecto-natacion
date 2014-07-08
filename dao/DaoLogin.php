@@ -30,8 +30,16 @@ require_once ('../dataBase/DataBase.php');
 	                    
 	                    session_start();
 	                    $_SESSION['acceso'] = 1;
-						$_SESSION['usuario'] = $usuario;
 						$_SESSION['torneo'] = 5;
+						
+						if($u_user == 'admin'){
+							$_SESSION['usuario'] = '';
+							$_SESSION['admin'] = 1;
+						}else{
+							$_SESSION['admin'] = 0;
+							$_SESSION['usuario'] = $usuario;	
+						}
+						
 	                    return true;
 
 	                } else {

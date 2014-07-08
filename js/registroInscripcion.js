@@ -1,3 +1,28 @@
+function listarDeportistas(tipo){
+	setClub();
+	var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange=function() {
+      if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+        document.getElementById("listaDeportistasR").innerHTML=xmlhttp.responseText;
+      }
+    }
+	var club = $("#listaClubes").val();
+	xmlhttp.open("GET","../controlador/getDeportistas.php?club="+club+"&tipo="+tipo,true);
+    xmlhttp.send();
+}
+
+function setClub(){
+	var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange=function() {
+      if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+        document.getElementById("nombreClubR").innerHTML=xmlhttp.responseText;
+      }
+    }
+	var club = $("#listaClubes").val();
+	xmlhttp.open("GET","../controlador/setClub.php?club="+club,true);
+    xmlhttp.send();
+}
+
 function listarPruebas(){
 	var deportista = document.getElementById("listaDeportistas").value;
 	var datos = deportista.split("*");
@@ -28,6 +53,19 @@ function listarPruebasInscritas(){
     }
 	
 	xmlhttp.open("GET","../controlador/getPruebasInscritasDeportista.php?codigo="+codigo,true);
+    xmlhttp.send();
+}
+
+function listarPruebasRelevoInscritas(){
+	setClub();
+	var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange=function() {
+      if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+        document.getElementById("listaPruebasR").innerHTML=xmlhttp.responseText;
+      }
+    }
+	var club = $("#listaClubes").val();
+	xmlhttp.open("GET","../controlador/getPruebasInscritasClub.php?club="+club,true);
     xmlhttp.send();
 }
 
@@ -77,8 +115,7 @@ function registrarInscripcionRelevo(){
       }
     }
 	
-	var pruebas = $("#listaPruebas").val();
-	
+	var pruebas = $("#listaPruebasRelevos").val();
 	xmlhttp.open("GET","../controlador/realizarInscripcionRelevo.php?pruebas="+pruebas,true);
     xmlhttp.send();
 }
@@ -91,7 +128,7 @@ function eliminarInscripcionRelevo(){
       }
     }
 	
-	var pruebas = $("#listaPruebas").val();
+	var pruebas = $("#listaPruebasRelevos").val();
 	
 	xmlhttp.open("GET","../controlador/eliminarInscripcionRelevo.php?pruebas="+pruebas,true);
     xmlhttp.send();

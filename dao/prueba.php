@@ -1,7 +1,9 @@
 <?php
-	require_once('DaoDeportista.php');
+	require_once('DaoClub.php');
 	
-	$dao = new DaoDeportista();
+	$dao = new DaoClub();
 	
-	echo 'Resultado: '.$dao->getTiempoInscripcion(1481,106);
+	echo '<select>';
+	$dao->listarClubes();
+	echo '</select>';
 ?>

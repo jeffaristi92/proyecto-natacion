@@ -40,21 +40,43 @@
 	<div class="container deportista">
 		<div class="row">
 			<div class="wrapper">
+                <?php
+				if($_SESSION['admin']==1){
+					require_once('../dao/DaoClub.php');
+					$dao = new DaoClub();
+					echo '<h5>Club</h5>';
+					echo '<select id="listaClubes" onChange="listarDeportistas(1)">';
+					$dao->listarClubes();
+					echo '</select>';
+				}else{
+					require_once ('../dao/DaoInscripcion.php');
+					$dao = new DaoInscripcion();
+					echo '<h3>Club: '.$dao->getNombreClub($_SESSION['usuario']).'</h3>';
+				}
+				?>
+                <div id="nombreClubR">
+                </div>
 				<h4>Registro Inscripciones Individuales</h4>		
 				
          		<div class="col-md-12">
-	
+
               		<form class="form-signin" role="form" method="GET">              			
 
               			<div class="col-md-6">
                         <h5>Deportistas</h5>
-              				<select id="listaDeportistas" name="listaDeportistas[]" multiple="multiple" onChange="listarPruebas()">
+                        	<div id="listaDeportistasR">
+              				
                             <?php
+								if($_SESSION['admin']==1){
+								}else{
                             	require_once ('../controlador/ControladorDeportista.php');
 								$controaldor = new ControladorDeportista();
+								echo '<select id="listaDeportistas" name="listaDeportistas[]" multiple="multiple" onChange="listarPruebas()">';
 								$controaldor->listarDeportistasClub($_SESSION['usuario']);
+								echo '</select>';
+								}
 							?>
-                    		</select>
+                            </div>
               			</div>						
 						<div class="col-md-6">
                         <h5>Pruebas</h5>

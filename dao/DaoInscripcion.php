@@ -62,7 +62,6 @@
 			$conexion = $this->conexionBd->conectar();
 
 			if ($stmt = $conexion->prepare("INSERT INTO `inscripcionrelevos`(`codigotorneo`, `codigoprueba`, `codigoclub`) VALUES (?,?,?)")){
-	        
 		        $stmt->bind_param('iis',$inscripcionR->getCodigoTorneo(),$inscripcionR->getCodigoPrueba(),$inscripcionR->getCodigoClub());  
 		        $stmt->execute();   
 		        $stmt->store_result();	

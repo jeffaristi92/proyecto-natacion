@@ -40,6 +40,22 @@
     <div class="container deportista">
 		<div class="row">
 			<div class="wrapper">
+            	<?php
+				if($_SESSION['admin']==1){
+					require_once('../dao/DaoClub.php');
+					$dao = new DaoClub();
+					echo '<h5>Club</h5>';
+					echo '<select id="listaClubes" onChange="listarPruebasRelevoInscritas()">';
+					$dao->listarClubes();
+					echo '</select>';
+				}else{
+					require_once ('../dao/DaoInscripcion.php');
+					$dao = new DaoInscripcion();
+					echo '<h3>Club: '.$dao->getNombreClub($_SESSION['usuario']).'</h3>';
+				}
+				?>
+                <div id="nombreClubR">
+                </div>
 				<h4>Consulta Inscripciones Relevos</h4>		
 				
          		<div class="col-md-12">
@@ -48,13 +64,17 @@
 
               			<div class="col-md-6">
                         <h5>Pruebas</h5>
-              				<select id="listaPruebasRelevos" name="listaPruebas[]" multiple="multiple" onChange="listarPruebas()">
                             <?php
-                            	require_once ('../dao/DaoPrueba.php');
-								$dao = new DaoPrueba();
-								$dao->listarPruebasRelevoInscritasClub($_SESSION['usuario']);
+								if($_SESSION['admin']==1){
+									echo '<div id="listaPruebasR"></div>';
+								}else{
+									require_once ('../dao/DaoPrueba.php');
+									$dao = new DaoPrueba();
+									echo '<select id="listaPruebasRelevos" name="listaPruebas[]" multiple="multiple">';
+									$dao->listarPruebasRelevoInscritasClub($_SESSION['usuario']);
+									echo '</select>';
+								}
 							?>
-                    		</select>
 							<a class="btn enviar eliminar_inscripcion_relevo">Eliminar</a>
                 			<div id="respuesta_inscripcion"></div>
 						</div>							

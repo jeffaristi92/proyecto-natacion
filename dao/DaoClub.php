@@ -10,17 +10,19 @@
 			$this->conexionBd = new DataBase();
 		}
 		
-		public function consultarClub($p1,$p2,$p3,$p4){			
+		public function listarClubes(){			
 			
 			$conexion = $this->conexionBd->conectar();
 
-			if ($stmt = $conexion->prepare("INSERT INTO inscripcion VALUES (?,?,?,?)")){ 
-		        $stmt->bind_param('iiis',$p1,$p2,$p3,$p4);
-				
+			if ($stmt = $conexion->prepare("SELECT codigoclub,upper(nombreclub) FROM club order by nombreclub")){ 
 				$resultado = $stmt->execute(); 
-				echo 'Mensaje '.$resultado;  
 		        $stmt->store_result();
-	        	echo "funciono";//mensaje para mostrar al usuario
+				$stmt->bind_result($codigoclub,$nombreclub);
+				$items = array();
+				       		
+	       		while ($stmt->fetch()) {
+				echo '<option value="'.$codigoclub.'">'.$nombreclub.'</option>';	
+    			}
 	        }else{
 				echo "No funciono";//mensaje para mostrar al usuario
 			}//Fin consulta

@@ -40,6 +40,22 @@
     <div class="container deportista">
 		<div class="row">
 			<div class="wrapper">
+            	<?php
+				if($_SESSION['admin']==1){
+					require_once('../dao/DaoClub.php');
+					$dao = new DaoClub();
+					echo '<h5>Club</h5>';
+					echo '<select id="listaClubes" onChange="setClub()">';
+					$dao->listarClubes();
+					echo '</select>';
+				}else{
+					require_once ('../dao/DaoInscripcion.php');
+					$dao = new DaoInscripcion();
+					echo '<h3>Club: '.$dao->getNombreClub($_SESSION['usuario']).'</h3>';
+				}
+				?>
+                <div id="nombreClubR">
+                </div>
 				<h4>Registro Inscripciones Relevos</h4>		
 				
          		<div class="col-md-12">
@@ -48,7 +64,7 @@
 
               			<div class="col-md-6">
                         <h5>Pruebas</h5>
-              				<select id="listaPruebasRelevos" name="listaPruebas[]" multiple="multiple" onChange="listarPruebas()">
+              				<select id="listaPruebasRelevos" name="listaPruebasRelevos[]" multiple="multiple">
                             <?php
                             	require_once ('../controlador/ControladorPrueba.php');
 								$controaldor = new ControladorPrueba();
