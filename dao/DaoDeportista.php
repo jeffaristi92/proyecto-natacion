@@ -59,7 +59,7 @@
 	       		$items = array();
 				       		
 	       		while ($stmt->fetch()) {
-				echo '<option value="'.$identificador."*".$sexo."*".$fecha.'">'.$nombre.'  '.$apellido.'</option>';	
+				echo utf8_encode('<option value="'.$identificador."*".$sexo."*".$fecha.'">'.$nombre.'  '.$apellido.'</option>');
     			}	        	
 	        }
 
