@@ -94,6 +94,9 @@
 	</div><!--FIN container-->	
 	
 	<script>
+	
+	listarDeportistas(1);
+	
       $( ".registrar_inscripcion" ).click(function() {
         registrarInscripcion();
       });
