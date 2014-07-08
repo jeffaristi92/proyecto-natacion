@@ -82,6 +82,7 @@
 	</div><!--FIN container-->	
 	
 	<script>
+		setClub();
       $( ".registrar_inscripcion_relevo" ).click(function() {
         registrarInscripcionRelevo();
       });

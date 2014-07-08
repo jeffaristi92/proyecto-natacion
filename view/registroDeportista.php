@@ -33,6 +33,7 @@
    		<script type="text/javascript" src="../js/bootstrap.min.js"></script>   
    		<script type="text/javascript" src="../js/jquery-ui.js"></script>
    		<script type="text/javascript" src="../js/jquery.placeholder.js"></script>
+        <script type="text/javascript" src="../js/registroInscripcion.js"></script>
    		 
 	</head>
 	<body>
@@ -43,6 +44,22 @@
 	<div class="container deportista">
 		<div class="row">
 			<div class="wrapper">
+            <?php
+				if($_SESSION['admin']==1){
+					require_once('../dao/DaoClub.php');
+					$dao = new DaoClub();
+					echo '<h5>Club</h5>';
+					echo '<select id="listaClubes" onChange="setClub()">';
+					$dao->listarClubes();
+					echo '</select>';
+				}else{
+					require_once ('../dao/DaoInscripcion.php');
+					$dao = new DaoInscripcion();
+					echo '<h3>Club: '.$dao->getNombreClub($_SESSION['usuario']).'</h3>';
+				}
+				?>
+                <div id="nombreClubR">
+                </div>
 				<h4>Registro Deportista</h4>		
 				
          		<div class="col-md-12">
@@ -80,6 +97,7 @@
 	</div><!--FIN container-->	
 	
 	<script>
+		setClub();
 	  $('input').placeholder();
 	  
       $( ".registrar_deportista" ).click(function() {

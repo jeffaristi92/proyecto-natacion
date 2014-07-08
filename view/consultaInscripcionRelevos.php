@@ -86,6 +86,7 @@
 	</div><!--FIN container-->	
 	
 	<script>
+		listarPruebasRelevoInscritas();
       $( ".eliminar_inscripcion_relevo" ).click(function() {
         eliminarInscripcionRelevo();
       });
