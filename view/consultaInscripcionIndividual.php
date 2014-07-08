@@ -94,6 +94,8 @@
 	</div><!--FIN container-->	
 	
 	<script>
+	listarDeportistas(1);
+	
       $( ".eliminar_inscripcion" ).click(function() {
         eliminarInscripcion();
       });
