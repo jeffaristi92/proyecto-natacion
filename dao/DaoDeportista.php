@@ -22,11 +22,10 @@
 		        $stmt->store_result();
 				$resultado = mysqli_stmt_affected_rows($stmt);	        
 	        	if($resultado != -1){
-					echo '*Deportista registrado exitosamente<br>';
+					echo '*Deportista actualizado exitosamente<br>';
 					echo ''.$deportista->getNombre().' '.$deportista->getApellidos().' '. $deportista->getFechaNacimiento().' '. $deportista->getSexo().' '. $deportista->getIdentificacion() .' '.$deportista->getTipoIdentificacion() .' '.$deportista->getCiudad().' '. $deportista->getClubAfiliado().' '. $deportista->getNacionalidad().' '. $deportista->getEstado().'<br>';
 				}else{
-					echo '*El deportista con Nro Identificacion: '.$deportista->getIdentificacion().' ya esxiste<br>';
-					echo '*No se pudo registrar el deportista<br>';
+					echo '*No se pudo actualizado el deportista<br>';
 				}
 						        
 		        //mensaje para mostrar al usuario
