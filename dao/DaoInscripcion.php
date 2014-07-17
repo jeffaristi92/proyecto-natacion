@@ -154,7 +154,7 @@ WHERE inscripcion.`codigodeportista` = deportistaclub.identificadordeportista or
 				while($stmt->fetch()){
 					echo '<tr>';
 					echo '<td>'.$indice.'</td>';
-					echo '<td>'.$nombresdeportista.' '.$apellidosdeportista.'</td>';
+					echo utf8_encode('<td>'.$nombresdeportista.' '.$apellidosdeportista.'</td>');
 					echo '<td>'.$categoria.'</td>';
 					echo '<td>';
 					$this->listarPruebasInscritasDeportista($codigodeportista);
