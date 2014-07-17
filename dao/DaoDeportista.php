@@ -11,6 +11,33 @@
 			$this->conexionBd = new DataBase();
 		}
 		
+		public function actualizarDeportista($deportista){			
+			
+			$conexion = $this->conexionBd->conectar();
+			echo 'Entramos';
+			if ($stmt = $conexion->prepare("UPDATE `deportista` SET `nombresdeportista` = ?,`apellidosdeportista` = ?,`fechanacimientodeportista` = ? ,`sexodeportista` = ?,`identificaciondeportista` = ?,`tipoidentificaciondeportista` = ?,`ciudaddeportista` = ?,`nacionalidaddeportista` = ? WHERE `identificadordeportista`= ?")){
+	        	echo 'preparando sentencia';
+		        $stmt->bind_param('ssssssssi',$deportista->getNombre(),$deportista->getApellidos(),$deportista->getFechaNacimiento(),$deportista->getSexo(),$deportista->getIdentificacion(),$deportista->getTipoIdentificacion(),$deportista->getCiudad(),$deportista->getNacionalidad(),$deportista->getId());  
+		        $stmt->execute();   
+		        $stmt->store_result();
+				$resultado = mysqli_stmt_affected_rows($stmt);	        
+	        	if($resultado != -1){
+					echo '*Deportista registrado exitosamente<br>';
+					echo ''.$deportista->getNombre().' '.$deportista->getApellidos().' '. $deportista->getFechaNacimiento().' '. $deportista->getSexo().' '. $deportista->getIdentificacion() .' '.$deportista->getTipoIdentificacion() .' '.$deportista->getCiudad().' '. $deportista->getClubAfiliado().' '. $deportista->getNacionalidad().' '. $deportista->getEstado().'<br>';
+				}else{
+					echo '*El deportista con Nro Identificacion: '.$deportista->getIdentificacion().' ya esxiste<br>';
+					echo '*No se pudo registrar el deportista<br>';
+				}
+						        
+		        //mensaje para mostrar al usuario
+	        	//echo "*Deportista registrado con éxito";
+	        	// ";
+	        	
+	        }//Fin consulta
+
+			$this->conexionBd->desconectar($conexion);			
+		}
+		
 		public function insertarDeportista($deportista){			
 			
 			$conexion = $this->conexionBd->conectar();
@@ -37,6 +64,8 @@
 
 			$this->conexionBd->desconectar($conexion);			
 		}
+		
+		
 
 		public function actualizarEdad() {
 
@@ -47,6 +76,23 @@
             $stmt = $conexion->prepare("update deportista set categoria =(select nombrecategoria from (select* from categoria where nombrecategoria <> 'abierta' and nombrecategoria <> 'D' and nombrecategoria <> 'E' and nombrecategoria <> 'F' and nombrecategoria <> 'Infantil' and nombrecategoria <> 'Junior' and nombrecategoria <> 'Mayor' and nombrecategoria <> 'Senior') as categoriasdeportista where deportista.edad between edadiniciocategoria and edadfincategoria)");
             $stmt->execute();   
 			$this->conexionBd->desconectar($conexion);			
+		}
+		
+		public function getDeportista($id){
+			$conexion = $this->conexionBd->conectar();	
+			if ($stmt = $conexion->prepare("SELECT `identificadordeportista`, `nombresdeportista`, `apellidosdeportista`, `fechanacimientodeportista`, `sexodeportista`, `identificaciondeportista`, `tipoidentificaciondeportista`, `ciudaddeportista`, `nacionalidaddeportista` FROM `deportista` WHERE `identificadordeportista` = ?")){
+				$stmt->bind_param('i',$id);        		
+				$stmt->execute();   
+		        $stmt->store_result();			
+	        	$stmt->bind_result($identificador, $nombre,$apellido,$fecha,$sexo,$identificacion,$tipoidentificacion,$ciudad,$nacionalidad);
+	       		$items = array();
+				$stmt->fetch();
+				$deportista = new Deportista($nombre,$apellido,$fecha,$sexo,$identificacion,$tipoidentificacion,$ciudad,'',$nacionalidad,'',0,'');
+				$deportista->setId($identificador);
+				return $deportista;
+	        }
+
+			$this->conexionBd->desconectar($conexion);
 		}
 		
 		public function getDeportistasClub($club){
