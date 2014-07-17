@@ -63,17 +63,17 @@
               		<form class="form-signin" role="form" method="GET">              			
 
               			<div class="col-md-6">
-                        <h5>Deportistas</h5>
+                        	<h5>Deportistas</h5>
                         	<div id="listaDeportistasR">
               				
                             <?php
 								if($_SESSION['admin']==1){
 								}else{
-                            	require_once ('../controlador/ControladorDeportista.php');
-								$controaldor = new ControladorDeportista();
-								echo '<select id="listaDeportistas" name="listaDeportistas[]" multiple="multiple" onChange="listarPruebas()">';
-								$controaldor->listarDeportistasClub($_SESSION['usuario']);
-								echo '</select>';
+                            		require_once ('../controlador/ControladorDeportista.php');
+									$controaldor = new ControladorDeportista();
+									echo '<select id="listaDeportistas" name="listaDeportistas[]" multiple="multiple" onChange="listarPruebas()">';
+									$controaldor->listarDeportistasClub($_SESSION['usuario']);
+									echo '</select>';
 								}
 							?>
                             </div>
