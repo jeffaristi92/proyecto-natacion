@@ -126,6 +126,7 @@
       $( ".actualizar_deportista" ).click(function() {
         actualizarDeportista();
       });
+	  consultarDeportista();
     </script>
 
 	</body>

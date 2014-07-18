@@ -1,8 +1,9 @@
 <?php
 	
 require 'ControladorDeportista.php';
+	session_start();
 	
-    if($_GET['nombres'] && $_GET['apellidos'] && $_GET['fechaNacimiento'] && $_GET['sexo'] && $_GET['club'] && $_GET['id']){
+    if($_GET['nombres'] && $_GET['apellidos'] && $_GET['fechaNacimiento'] && $_GET['sexo'] && $_GET['id']){
 
     	@$nombres = $_GET['nombres'];
     	@$apellidos = $_GET['apellidos'];
@@ -12,7 +13,7 @@ require 'ControladorDeportista.php';
         @$id = $_GET['id'];
         @$pais = $_GET['pais'];
         @$ciudad = $_GET['ciudad'];
-        @$club = $_GET['club'];
+        @$club = $_SESSION['usuario'];
         @$estado = 'habilitado';
     	
       	$controlador = new ControladorDeportista();

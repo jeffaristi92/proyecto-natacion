@@ -14,9 +14,7 @@
 		public function actualizarDeportista($deportista){			
 			
 			$conexion = $this->conexionBd->conectar();
-			echo 'Entramos';
 			if ($stmt = $conexion->prepare("UPDATE `deportista` SET `nombresdeportista` = ?,`apellidosdeportista` = ?,`fechanacimientodeportista` = ? ,`sexodeportista` = ?,`identificaciondeportista` = ?,`tipoidentificaciondeportista` = ?,`ciudaddeportista` = ?,`nacionalidaddeportista` = ? WHERE `identificadordeportista`= ?")){
-	        	echo 'preparando sentencia';
 		        $stmt->bind_param('ssssssssi',$deportista->getNombre(),$deportista->getApellidos(),$deportista->getFechaNacimiento(),$deportista->getSexo(),$deportista->getIdentificacion(),$deportista->getTipoIdentificacion(),$deportista->getCiudad(),$deportista->getNacionalidad(),$deportista->getId());  
 		        $stmt->execute();   
 		        $stmt->store_result();

@@ -27,10 +27,9 @@ function registrarDeportista() {
   	var id = $("#nro_id").val();
   	var pais = $("#pais").val();
   	var ciudad = $("#ciudad").val();	
-    var club = document.getElementById("club").innerHTML;
 
     xmlhttp.open("GET","../controlador/controllerDeportista.php?nombres="+nombres+"&apellidos="+apellidos+"&sexo="+sexo+
-      "&fechaNacimiento="+fechaNacimiento+"&tipoId="+tipoId+"&id="+id+"&pais="+pais+"&ciudad="+ciudad+"&club="+club,true);
+      "&fechaNacimiento="+fechaNacimiento+"&tipoId="+tipoId+"&id="+id+"&pais="+pais+"&ciudad="+ciudad,true);
     xmlhttp.send();
 }
 
@@ -53,7 +52,6 @@ function prueba(){
 }
 
 function actualizarDeportista() {
-	alert("hola");
   	var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange=function() {
       if (xmlhttp.readyState==4 && xmlhttp.status==200) {
