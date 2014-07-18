@@ -3,10 +3,12 @@
 	class DataBase{
 	
 		private $servidor = 'localhost';		
+		private $dbName = 'natacion';
 		//private $dbName = 'clubtibu_app';
-		private $dbName = 'clubtibu_app';
-		private $user = 'clubtibu_user';		
-		private $password = 'clubtibu3juh4yg4';
+		private $user = 'root';
+		//private $user = 'clubtibu_user';		
+		private $password = 'john123';
+		//private $password = 'clubtibu3juh4yg4';
 		private $mysqli;
 		
 	    public function conectar() {
