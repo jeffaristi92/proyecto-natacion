@@ -124,7 +124,6 @@ select{
 	margin-right: 0;
 	margin-left: 334px;
 }
-
-
-
-
+ #listaDeportistasR  .editar_deportista #listaDeportistas{
+	height: 32px;
+}

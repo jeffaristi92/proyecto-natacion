@@ -65,17 +65,19 @@
 
                     <div id="listaDeportistasR">
                     <h5>Deportistas</h5>
+              			<div class="editar_deportista">
               				
-                    <?php
-						if($_SESSION['admin']==1){
-						}else{
-                         	require_once ('../controlador/ControladorDeportista.php');
-							$controaldor = new ControladorDeportista();
-							echo '<select id="listaDeportistas" name="listaDeportistas[]" multiple="multiple" onChange="consultarDeportista()">';
-							$controaldor->listarDeportistasClub($_SESSION['usuario']);
-							echo '</select>';
-						}
-					?>
+	                    <?php
+							if($_SESSION['admin']==1){
+							}else{
+	                         	require_once ('../controlador/ControladorDeportista.php');
+								$controlador = new ControladorDeportista();
+								echo '<select id="listaDeportistas" name="listaDeportistas[]" onChange="consultarDeportista()">';
+								$controlador->listarDeportistasClub($_SESSION['usuario']);
+								echo '</select>';
+							}
+						?>
+						</div>
                     </div>
 					
               		<form class="form-signin" role="form" method="GET">              			

@@ -1,6 +1,13 @@
 $( document ).ready(function() {
     
-    $( "#fecha" ).datepicker();
+    //$( "#fecha" ).datepicker();
+    $( "#fecha" ).datepicker({
+          changeMonth: true,
+          changeYear: true,
+          dateFormat: "yy-mm-dd",
+          yearRange: "1980:2050",
+          gotoCurrent: true
+    });
 });
 
 

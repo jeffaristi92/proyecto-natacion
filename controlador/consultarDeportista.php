@@ -8,8 +8,8 @@
 	
 	
 	echo '<div class="col-md-6">
-     <input id="nombres"   type="text"   class="form-control" placeholder="Nombres *" autofocus value="'.$deportista->getNombre().'"/>
-     <input id="apellidos" type="text"   class="form-control" placeholder="Apellidos *" value="'.$deportista->getApellidos().'"/>
+     <input id="nombres"   type="text"   class="form-control" placeholder="Nombres *" autofocus value="'. utf8_encode($deportista->getNombre()).'"/>
+     <input id="apellidos" type="text"   class="form-control" placeholder="Apellidos *" value="'. utf8_encode($deportista->getApellidos()).'"/>
      <select id="sexo" class="form-control">';
 	 
 	 if($deportista->getSexo()=="Varon"){
