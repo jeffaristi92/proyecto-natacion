@@ -9,6 +9,8 @@
 		//private $user = 'clubtibu_user';		
 		private $password = 'john123';
 		//private $password = 'clubtibu3juh4yg4';
+		//private $user = 'clubtibu_user';			
+		//private $password = 'clubtibu3juh4yg4';
 		private $mysqli;
 		
 	    public function conectar() {
