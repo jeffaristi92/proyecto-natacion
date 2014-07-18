@@ -48,7 +48,7 @@
 					require_once('../dao/DaoClub.php');
 					$dao = new DaoClub();
 					echo '<h5>Club</h5>';
-					echo '<select id="listaClubes" onChange="listarDeportistas(1)">';
+					echo '<select id="listaClubes" onChange="listarDeportistas(3)">';
 					$dao->listarClubes();
 					echo '</select>';
 				}else{
@@ -71,38 +71,40 @@
 						}else{
                          	require_once ('../controlador/ControladorDeportista.php');
 							$controaldor = new ControladorDeportista();
-							echo '<select id="listaDeportistas" name="listaDeportistas[]" multiple="multiple" onChange="listarPruebas()">';
+							echo '<select id="listaDeportistas" name="listaDeportistas[]" multiple="multiple" onChange="consultarDeportista()">';
 							$controaldor->listarDeportistasClub($_SESSION['usuario']);
 							echo '</select>';
 						}
 					?>
                     </div>
-	
+					
               		<form class="form-signin" role="form" method="GET">              			
-
-              			<div class="col-md-6">
-              				<input id="nombres"   type="text"   class="form-control" placeholder="Nombres *" autofocus/>
-                			<input id="apellidos" type="text"   class="form-control" placeholder="Apellidos *"/>
-							<select id="sexo" class="form-control">
-                    			<option value="si">Varon</option>
-                    			<option value="no">Dama</option>
-                			</select>
-							<input id="fecha" type="text"   class="form-control" placeholder="Fecha Nacimiento *"/>
-              			</div>						
-						<div class="col-md-6">
-              				<select id="id" class="form-control">
-                    			<option value="si">T.I</option>
-                    			<option value="no">C.C</option>
-                			</select>
-								
-							<input id="nro_id"   type="text"  class="form-control" placeholder="Nro Identificación *"/>
-							<input id="pais"     type="text"  class="form-control" placeholder="País"/>
-							<input id="ciudad"   type="text"  class="form-control" placeholder="Ciudad"/>
-							<div id="club" style="display: none;"><?php echo $_SESSION['usuario']?></div>   
-
-							<a class="btn enviar registrar_deportista">Registrar</a>
-                			<div id="respuesta_deportista"></div>
-						</div>	
+						<div id="respuestaConsultaDeportista">
+                            <div class="col-md-6">
+                                <input id="nombres"   type="text"   class="form-control" placeholder="Nombres *" autofocus/>
+                                <input id="apellidos" type="text"   class="form-control" placeholder="Apellidos *"/>
+                                <select id="sexo" class="form-control">
+                                    <option value="si">Varon</option>
+                                    <option value="no">Dama</option>
+                                </select>
+                                <input id="fecha" type="text"   class="form-control" placeholder="Fecha Nacimiento *"/>
+                            </div>						
+                            <div class="col-md-6">
+                                <select id="id" class="form-control">
+                                    <option value="si">T.I</option>
+                                    <option value="no">C.C</option>
+                                </select>
+                                    
+                                <input id="nro_id"   type="text"  class="form-control" placeholder="Nro Identificación *"/>
+                                <input id="pais"     type="text"  class="form-control" placeholder="País"/>
+                                <input id="ciudad"   type="text"  class="form-control" placeholder="Ciudad"/>
+                                <div id="club" style="display: none;"><?php echo $_SESSION['usuario']?></div>   
+    
+                                
+                                <div id="respuestaActualizacionDeportista"></div>
+                            </div>
+                        </div>
+                        <a class="btn enviar actualizar_deportista">Actualizar</a>
 			        </form>
 			    </div>
           		
@@ -112,15 +114,15 @@
 	<?php
 		if($_SESSION['admin']==1){
 			echo '<script>';
-			echo 'listarDeportistas(1);';
+			echo 'listarDeportistas(3);';
 			echo '</script>';
 		}
 	?>
 	<script>
 	  $('input').placeholder();
 	  
-      $( ".registrar_deportista" ).click(function() {
-        registrarDeportista();
+      $( ".actualizar_deportista" ).click(function() {
+        actualizarDeportista();
       });
     </script>
 

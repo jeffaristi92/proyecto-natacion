@@ -2,7 +2,7 @@
 
 	class Deportista {
  	
-    	private $nombre = '', $apellidos = '', $fechaNacimiento = '', $sexo = '', $identificacion = '', $tipoIdentificacion = '', $ciudad = '', $clubAfiliado = '', $nacionalidad = '', $estado = '', $edad = '', $categoria = '';
+    	private $nombre = '', $apellidos = '', $fechaNacimiento = '', $sexo = '', $identificacion = '', $tipoIdentificacion = '', $ciudad = '', $clubAfiliado = '', $nacionalidad = '', $estado = '', $edad = '', $categoria = '', $id=0;
         
         public function __construct($nombre, $apellidos, $fechaNacimiento, $sexo, $identificacion, $tipoIdentificacion, $ciudad, $clubAfiliado, $nacionalidad, $estado, $edad, $categoria){
             
@@ -20,7 +20,15 @@
 			$this->categoria = $categoria;
         }
 
-        public function setEdad($edad) {
+        public function setId($id) {
+            $this->id = $id;
+        }
+		
+		public function getId() {
+            return $this->id;
+        }
+
+		public function setEdad($edad) {
             $this->edad = $edad;
         }
 
